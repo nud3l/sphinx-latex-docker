@@ -30,9 +30,9 @@ RUN apt-get update \
   && apt-get clean
 
 # Install test dependencies
-RUN virtualenv -p python3.7 /python3.7 \
-  && /python3.7/bin/pip install "Sphinx[test,websupport]" \
-  && /python3.7/bin/pip uninstall -y Sphinx
+RUN virtualenv -p python3.9 /python3.9 \
+  && /python3.9/bin/pip install "Sphinx[test,websupport]" \
+  && /python3.9/bin/pip uninstall -y Sphinx
 
 RUN mkdir /repos /sphinx
 WORKDIR /sphinx
