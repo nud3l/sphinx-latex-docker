@@ -16,7 +16,7 @@ RUN apt-get update \
        make \
        lmodern \
        openjdk-11-jre-headless \
-       python-virtualenv \
+       python3-virtualenv \
        python3-pip \
        python3-dev \
        texlive-latex-recommended \
@@ -29,10 +29,11 @@ RUN apt-get update \
   && apt-get autoremove \
   && apt-get clean
 
+RUN python3 -V
 # Install test dependencies
-RUN virtualenv -p python3.9 /python3.9 \
-  && /python3.9/bin/pip install "Sphinx[test,websupport]" \
-  && /python3.9/bin/pip uninstall -y Sphinx
+RUN virtualenv -p python3.8 /python3.8 \
+  && /python3.8/bin/pip install "Sphinx[test,websupport]" \
+  && /python3.8/bin/pip uninstall -y Sphinx
 
 RUN mkdir /repos /sphinx
 WORKDIR /sphinx
